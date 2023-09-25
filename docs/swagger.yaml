@@ -1,0 +1,273 @@
+basePath: /
+definitions:
+  model.ArticleModel:
+    properties:
+      article_body:
+        type: string
+      article_id:
+        type: string
+      article_title:
+        type: string
+      category:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      is_active:
+        type: integer
+      thumbnail:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  model.GeneralResponse:
+    properties:
+      code:
+        type: integer
+      data: {}
+      message:
+        type: string
+    type: object
+  model.UserModel:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
+host: localhost:8000
+info:
+  contact:
+    email: fiber@swagger.io
+    name: API Support
+  description: Online Article
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Online Article
+  version: 1.0.0
+paths:
+  /v1/api/article:
+    get:
+      consumes:
+      - application/json
+      description: GetAllArticle.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.GeneralResponse'
+      security:
+      - JWT: []
+      summary: GetAllArticle
+      tags:
+      - Article
+    post:
+      consumes:
+      - multipart/form-data
+      description: CreateArticle.
+      parameters:
+      - description: imageUpload
+        in: formData
+        name: imageUpload
+        required: true
+        type: file
+      - description: ArticleTitle
+        in: formData
+        name: article_title
+        required: true
+        type: string
+      - description: ArticleBody
+        in: formData
+        name: article_body
+        required: true
+        type: string
+      - description: Category
+        in: formData
+        name: category
+        required: true
+        type: string
+      - description: isActive
+        in: formData
+        name: is_active
+        required: true
+        type: string
+      - description: Request Body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/model.ArticleModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.GeneralResponse'
+      security:
+      - JWT: []
+      summary: CreateArticle
+      tags:
+      - Article
+  /v1/api/article/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: DeleteArticle.
+      parameters:
+      - description: ArticleId
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.GeneralResponse'
+      security:
+      - JWT: []
+      summary: DeleteArticle
+      tags:
+      - Article
+    get:
+      consumes:
+      - application/json
+      description: GetArticleById.
+      parameters:
+      - description: ArticleId
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.GeneralResponse'
+      security:
+      - JWT: []
+      summary: GetArticleById
+      tags:
+      - Article
+    put:
+      consumes:
+      - multipart/form-data
+      description: UpdateArticle.
+      parameters:
+      - description: imageUpload
+        in: formData
+        name: imageUpload
+        required: true
+        type: file
+      - description: ArticleTitle
+        in: formData
+        name: article_title
+        required: true
+        type: string
+      - description: ArticleBody
+        in: formData
+        name: article_body
+        required: true
+        type: string
+      - description: Category
+        in: formData
+        name: category
+        required: true
+        type: string
+      - description: isActive
+        in: formData
+        name: is_active
+        required: true
+        type: string
+      - description: Request Body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/model.ArticleModel'
+      - description: ArticleId
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.GeneralResponse'
+      security:
+      - JWT: []
+      summary: UpdateArticle
+      tags:
+      - Article
+  /v1/api/login:
+    post:
+      consumes:
+      - application/json
+      description: LoginAuthentication.
+      parameters:
+      - description: Request Body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/model.UserModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.GeneralResponse'
+      summary: LoginAuthentication
+      tags:
+      - User
+  /v1/api/register:
+    post:
+      consumes:
+      - application/json
+      description: RegisterUser.
+      parameters:
+      - description: Request Body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/model.UserModel'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.GeneralResponse'
+      summary: RegisterUser
+      tags:
+      - User
+schemes:
+- http
+- https
+securityDefinitions:
+  JWT:
+    description: Authorization For JWT
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
