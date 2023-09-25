@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS public.tb_articlesss (
   article_id varchar(36) NOT NULL,
   article_title varchar(100) DEFAULT NULL,
-  article_body varchar(100) DEFAULT NULL,
+  article_body text,
   category varchar(100) DEFAULT NULL,
   is_active int2 NULL,
   thumbnail text,
