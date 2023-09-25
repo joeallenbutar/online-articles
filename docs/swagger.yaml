@@ -1,28 +1,5 @@
 basePath: /
 definitions:
-  model.ArticleModel:
-    properties:
-      article_body:
-        type: string
-      article_id:
-        type: string
-      article_title:
-        type: string
-      category:
-        type: string
-      created_at:
-        type: string
-      created_by:
-        type: string
-      is_active:
-        type: integer
-      thumbnail:
-        type: string
-      updated_at:
-        type: string
-      updated_by:
-        type: string
-    type: object
   model.GeneralResponse:
     properties:
       code:
@@ -101,12 +78,6 @@ paths:
         name: is_active
         required: true
         type: string
-      - description: Request Body
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/model.ArticleModel'
       produces:
       - application/json
       responses:
@@ -194,12 +165,6 @@ paths:
         name: is_active
         required: true
         type: string
-      - description: Request Body
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/model.ArticleModel'
       - description: ArticleId
         in: path
         name: id

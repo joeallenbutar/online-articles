@@ -102,15 +102,6 @@ const docTemplate = `{
                         "name": "is_active",
                         "in": "formData",
                         "required": true
-                    },
-                    {
-                        "description": "Request Body",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.ArticleModel"
-                        }
                     }
                 ],
                 "responses": {
@@ -211,15 +202,6 @@ const docTemplate = `{
                         "name": "is_active",
                         "in": "formData",
                         "required": true
-                    },
-                    {
-                        "description": "Request Body",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.ArticleModel"
-                        }
                     },
                     {
                         "type": "string",
@@ -344,41 +326,6 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "model.ArticleModel": {
-            "type": "object",
-            "properties": {
-                "article_body": {
-                    "type": "string"
-                },
-                "article_id": {
-                    "type": "string"
-                },
-                "article_title": {
-                    "type": "string"
-                },
-                "category": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "created_by": {
-                    "type": "string"
-                },
-                "is_active": {
-                    "type": "integer"
-                },
-                "thumbnail": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "updated_by": {
-                    "type": "string"
-                }
-            }
-        },
         "model.GeneralResponse": {
             "type": "object",
             "properties": {

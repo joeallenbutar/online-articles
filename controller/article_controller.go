@@ -39,7 +39,6 @@ func (controller ArticleController) Route(app *fiber.App) {
 // @Param article_body formData string true "ArticleBody"
 // @Param category formData string true "Category"
 // @Param is_active formData string true "isActive"
-// @Param request body model.ArticleModel true "Request Body"
 // @Success 200 {object} model.GeneralResponse
 // @Security JWT
 // @Router /v1/api/article [post]
@@ -118,7 +117,6 @@ func (controller ArticleController) CreateArticle(c *fiber.Ctx) error {
 // @Param article_body formData string true "ArticleBody"
 // @Param category formData string true "Category"
 // @Param is_active formData string true "isActive"
-// @Param request body model.ArticleModel true "Request Body"
 // @Param id path string true "ArticleId"
 // @Success 200 {object} model.GeneralResponse
 // @Security JWT
