@@ -19,8 +19,7 @@ Optinal for set bucket to public:
 - sh-4.4# mc anonymous set download myminio/articles
 ![Alt text](/img/1.png)
 
-## Deskripsi Aplikasi
-# Aplikasi Artikel Online
+## Deskripsi Aplikasi Artikel Online
 Dalam aplikasi ini, terdapat 7 HTTP REST API Endpoint, yakni:
 1. Registrasi User : [POST] http://localhost:8000/v1/api/register
    - Melakukan registrasi akun user.
