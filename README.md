@@ -15,6 +15,6 @@
     password: Strong#Pass#23
 
 Optinal for set bucket to public:
-sh-4.4# mc alias set myminio http://localhost:9000 admin Strong#Pass#23
-sh-4.4# mc anonymous set download myminio/articles
+- sh-4.4# mc alias set myminio http://localhost:9000 admin Strong#Pass#23
+- sh-4.4# mc anonymous set download myminio/articles
 ![Alt text](/img/1.png)
